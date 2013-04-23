@@ -31,4 +31,21 @@ describe LeaderboardsController do
       expect(MultiJson.decode(response.body)).to eq({"id" => leaderboard.id, "name" => "Leaderboard"})
     end
   end
+
+  context "POST #create" do
+    before { post :create, game_id: game.id, name: "Leaderboard", format: 'json' }
+
+    it "get created leaderboard" do
+      expect(MultiJson.decode(response.body)).to eq({"id" => Leaderboard.last.id, "name" => "Leaderboard"})
+    end
+  end
+
+  context "PUT #update" do
+    let(:leaderboard) { FactoryGirl.create(:leaderboard, game: game, name: "Leaderboard") }
+    before { put :update, game_id: game.id, id: leaderboard.id, name: "New Leaderboard", format: 'json' }
+
+    it "get updates leaderboard" do
+      expect(MultiJson.decode(response.body)).to eq({"id" => leaderboard.id, "name" => "New Leaderboard"})
+    end
+  end
 end
