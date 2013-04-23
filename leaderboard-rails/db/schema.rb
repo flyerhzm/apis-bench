@@ -11,13 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423100753) do
+ActiveRecord::Schema.define(:version => 20130423102214) do
 
   create_table "leaderboards", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "scores", :force => true do |t|
+    t.integer  "value"
+    t.integer  "user_id"
+    t.integer  "leaderboard_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "scores", ["leaderboard_id"], :name => "index_scores_on_leaderboard_id"
+  add_index "scores", ["user_id"], :name => "index_scores_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
