@@ -1,0 +1,13 @@
+{
+  "mysql": {
+    "server_root_password": "api-bench",
+    "server_repl_password": "api-bench",
+    "server_debian_password": "api-bench"
+  },
+  "run_list":[
+    "recipe[runit]",
+    "recipe[nginx::source]",
+    "recipe[mysql::server]",
+    "recipe[mysql::client]"
+  ]
+}
