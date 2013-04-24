@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Leaderboard do
   it { should belong_to :game }
+  it { should have_many :leaderboards }
 
   context ".page" do
     before do

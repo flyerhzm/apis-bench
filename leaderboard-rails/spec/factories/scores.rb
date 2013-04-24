@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :score do
     value 1
-    user nil
-    leaderboard nil
+    user
+    leaderboard
   end
 end
