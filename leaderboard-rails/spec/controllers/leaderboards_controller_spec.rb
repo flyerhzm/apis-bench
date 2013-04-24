@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe LeaderboardsController do
   let(:game) { FactoryGirl.create(:game) }
+
   context "GET #index" do
     before do
       @leaderboard1 = FactoryGirl.create(:leaderboard, game: game, name: "Leaderboard 1")
