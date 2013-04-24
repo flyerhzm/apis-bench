@@ -5,5 +5,6 @@ LeaderboardRails::Application.routes.draw do
 
   resources :leaderboards, only: [] do
     resources :scores, only: [:index]
+    resources :users, only: [:show]
   end
 end

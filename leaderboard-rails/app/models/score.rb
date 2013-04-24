@@ -10,4 +10,8 @@ class Score < ActiveRecord::Base
     offset = (page - 1) * PER_PAGE
     offset(offset).limit(PER_PAGE)
   end
+
+  def rank
+    Score.where("value < ?", value).count + 1
+  end
 end

@@ -35,4 +35,16 @@ describe Score do
       expect(Score.page(2)).to eq [@score3]
     end
   end
+
+  context "#rank" do
+    before do
+      @score1 = FactoryGirl.create(:score, value: 10)
+      @score2 = FactoryGirl.create(:score, value: 5)
+      @score3 = FactoryGirl.create(:score, value: 15)
+    end
+
+    it "gets its rank" do
+      expect(@score1.rank).to eq 2
+    end
+  end
 end
