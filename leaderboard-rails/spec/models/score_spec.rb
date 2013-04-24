@@ -27,6 +27,11 @@ describe Score do
       @score3 = FactoryGirl.create(:score)
     end
 
+    after do
+      Score.send(:remove_const, :PER_PAGE)
+      Score.const_set(:PER_PAGE, 10)
+    end
+
     it "gets first 2 scores" do
       expect(Score.page(1)).to eq [@score1, @score2]
     end
@@ -43,8 +48,12 @@ describe Score do
       @score3 = FactoryGirl.create(:score, value: 15)
     end
 
-    it "gets its rank" do
-      expect(@score1.rank).to eq 2
+    it "get first rank" do
+      expect(@score3.rank).to eq 1
+    end
+
+    it "gets last rank" do
+      expect(@score2.rank).to eq 3
     end
   end
 end

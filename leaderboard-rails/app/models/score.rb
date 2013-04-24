@@ -12,6 +12,6 @@ class Score < ActiveRecord::Base
   end
 
   def rank
-    Score.where("value < ?", value).count + 1
+    Score.where("value > ?", value).count + 1
   end
 end
