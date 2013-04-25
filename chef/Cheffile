@@ -3,9 +3,10 @@
 
 site 'http://community.opscode.com/api/v1'
 
-cookbook 'user'
-cookbook 'rvm', github: 'fnichol/chef-rvm'
+cookbook 'database'
 cookbook 'god'
-cookbook 'runit'
-cookbook 'nginx'
 cookbook 'mysql'
+cookbook 'nginx'
+cookbook 'runit'
+cookbook 'rvm', github: 'fnichol/chef-rvm'
+cookbook 'user'

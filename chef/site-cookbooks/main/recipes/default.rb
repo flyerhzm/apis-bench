@@ -8,3 +8,20 @@ end
 god_monitor "leaderboard-rails" do
   config "leaderboard-rails.god.erb"
 end
+
+mysql_connection_info = {:host => "localhost",
+                         :username => 'root',
+                         :password => node['mysql']['server_root_password']}
+
+mysql_database 'api_bench_production' do
+  connection mysql_connection_info
+  action :create
+end
+
+mysql_database_user 'api-bench' do
+  connection mysql_connection_info
+  password 'api-bench'
+  database_name 'api_bench_production'
+  privileges [:all]
+  action :grant
+end

@@ -6,9 +6,9 @@
   },
   "rvm": {
     "user_installs": [{
-       "user": "deploy"
+      "user": "deploy",
+      "default_ruby": "ruby-2.0.0-p0"
     }],
-    "user_default_ruby": "ruby-2.0.0-p0",
     "rvmrc": {
       "rvm_project_rvmrc": 1,
       "rvm_gemset_create_on_use_flag": 1,
@@ -16,13 +16,15 @@
     }
   },
   "run_list":[
+    "recipe[mysql::server]",
+    "recipe[mysql::client]",
+    "recipe[mysql::ruby]",
+    "recipe[database]",
     "recipe[user]",
     "recipe[rvm::user]",
     "recipe[runit]",
     "recipe[god]",
     "recipe[main]",
-    "recipe[nginx::source]",
-    "recipe[mysql::server]",
-    "recipe[mysql::client]"
+    "recipe[nginx::source]"
   ]
 }
