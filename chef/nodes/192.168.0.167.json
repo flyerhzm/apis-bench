@@ -9,11 +9,6 @@
        "user": "deploy"
     }],
     "user_default_ruby": "ruby-2.0.0-p0",
-    "default_gems": [
-      {"name": "bundler"},
-      {"name": "rake"},
-      {"name": "god"}
-    ],
     "rvmrc": {
       "rvm_project_rvmrc": 1,
       "rvm_gemset_create_on_use_flag": 1,
@@ -23,8 +18,9 @@
   "run_list":[
     "recipe[user]",
     "recipe[rvm::user]",
-    "recipe[main]",
     "recipe[runit]",
+    "recipe[god]",
+    "recipe[main]",
     "recipe[nginx::source]",
     "recipe[mysql::server]",
     "recipe[mysql::client]"

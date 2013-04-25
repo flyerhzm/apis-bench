@@ -4,6 +4,8 @@ SITE
     apt (1.9.2)
     build-essential (1.4.0)
     chef_gem (0.1.0)
+    god (1.0.0)
+      runit (>= 0.0.0)
     mysql (3.0.0)
       build-essential (>= 0.0.0)
       openssl (>= 0.0.0)
@@ -29,6 +31,7 @@ GIT
       chef_gem (>= 0.0.0)
 
 DEPENDENCIES
+  god (>= 0)
   mysql (>= 0)
   nginx (>= 0)
   runit (>= 0)
