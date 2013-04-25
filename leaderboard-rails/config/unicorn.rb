@@ -13,7 +13,7 @@ GC.respond_to?(:copy_on_write_friendly=) and
 #check_client_connection false
 
 before_fork do |server, worker|
-  old_pid = "#{shared_path}/pids/unicorn.pid.oldbin"
+  old_pid = shared_path + "/pids/leaderboard-rails.unicorn.pid.oldbin"
   if File.exists?(old_pid) && server.pid != old_pid
     begin
       Process.kill("QUIT", File.read(old_pid).to_i)
