@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: api_bench_production
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  username: api-bench
+  password: api-bench
+  socket: /var/run/mysqld/mysqld.sock
