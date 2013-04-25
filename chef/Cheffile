@@ -3,6 +3,8 @@
 
 site 'http://community.opscode.com/api/v1'
 
+cookbook 'user'
+cookbook 'rvm', github: 'fnichol/chef-rvm'
 cookbook 'runit'
 cookbook 'nginx'
 cookbook 'mysql'

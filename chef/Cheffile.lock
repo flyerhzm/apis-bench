@@ -3,6 +3,7 @@ SITE
   specs:
     apt (1.9.2)
     build-essential (1.4.0)
+    chef_gem (0.1.0)
     mysql (3.0.0)
       build-essential (>= 0.0.0)
       openssl (>= 0.0.0)
@@ -16,10 +17,21 @@ SITE
     runit (1.1.2)
       build-essential (>= 0.0.0)
       yum (>= 0.0.0)
+    user (0.3.0)
     yum (2.2.0)
+
+GIT
+  remote: https://github.com/fnichol/chef-rvm
+  ref: master
+  sha: 08a06bc7c3c9fd0fb6b3a9b80f27bd74e109660c
+  specs:
+    rvm (0.9.1)
+      chef_gem (>= 0.0.0)
 
 DEPENDENCIES
   mysql (>= 0)
   nginx (>= 0)
   runit (>= 0)
+  rvm (>= 0)
+  user (>= 0)
 
