@@ -1,4 +1,3 @@
 load 'deploy'
-# Uncomment if you are using Rails' asset pipeline
-    # load 'deploy/assets'
-load 'config/deploy' # remove this line to skip loading any of the default tasks
+Dir['config/deploy/*.rb'].each { |plugin| load(plugin) }
+load 'config/deploy'
