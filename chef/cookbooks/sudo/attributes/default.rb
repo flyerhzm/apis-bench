@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: god
-# Recipe:: default
+# Cookbook Name:: sudo
+# Attribute File:: default
 #
-# Copyright 2009, Opscode, Inc.
+# Copyright 2008-2011, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,24 +17,9 @@
 # limitations under the License.
 #
 
-include_recipe "runit"
-
-gem_package "god" do
-  action :install
-end
-
-directory "/etc/god/conf.d" do
-  recursive true
-  owner "root"
-  group "root"
-  mode 0755
-end
-
-template "/etc/god/master.god" do
-  source "master.god.erb"
-  owner "root"
-  group "root"
-  mode 0755
-end
-
-runit_service "god"
+default['authorization']['sudo']['groups']            = []
+default['authorization']['sudo']['users']             = []
+default['authorization']['sudo']['passwordless']      = false
+default['authorization']['sudo']['include_sudoers_d'] = false
+default['authorization']['sudo']['agent_forwarding']  = false
+default['authorization']['sudo']['sudoers_defaults']  = ['!lecture,tty_tickets,!fqdn']

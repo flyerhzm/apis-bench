@@ -4,9 +4,9 @@
 site 'http://community.opscode.com/api/v1'
 
 cookbook 'database'
-cookbook 'god'
 cookbook 'mysql'
 cookbook 'nginx'
 cookbook 'runit'
 cookbook 'rvm', github: 'fnichol/chef-rvm'
+cookbook 'sudo'
 cookbook 'user'

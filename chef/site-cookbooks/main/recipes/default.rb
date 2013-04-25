@@ -5,10 +5,6 @@ user_account "deploy" do
   supports manage_home: true
 end
 
-god_monitor "leaderboard-rails" do
-  config "leaderboard-rails.god.erb"
-end
-
 mysql_connection_info = {:host => "localhost",
                          :username => 'root',
                          :password => node['mysql']['server_root_password']}
@@ -24,4 +20,16 @@ mysql_database_user 'api-bench' do
   database_name 'api_bench_production'
   privileges [:all]
   action :grant
+end
+
+template "/tmp/leaderboard-rails.god" do
+  source "leaderboard-rails.god"
+end
+
+template "/tmp/god.conf" do
+  source "god.conf"
+end
+
+execute "god_start" do
+  command "rvmsudo god -c /tmp/god.conf"
 end

@@ -4,11 +4,11 @@ rails_root = '/home/deploy/sites/apis-bench/current/leaderboard-rails'
 shared_root = '/home/deploy/sites/apis-bench/shared'
 
 God.watch do |w|
-  w.name = "unicorn"
+  w.name = "leaderboard-rails.unicorn"
   w.interval = 30.seconds # default
 
   # unicorn needs to be run from the rails root
-  w.start = "cd #{rails_root} && bundle exec unicorn_rails -c #{rails_root}/config/unicorn.rb -E production -D"
+  w.start = "cd #{rails_root} && bundle exec unicorn -c #{rails_root}/config/unicorn.rb -E production -D"
 
   # QUIT gracefully shuts down workers
   w.stop = "kill -QUIT `cat #{shared_root}/pids/leaderboard-rails.unicorn.pid`"
