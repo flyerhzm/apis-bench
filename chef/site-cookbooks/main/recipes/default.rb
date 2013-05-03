@@ -22,6 +22,14 @@ mysql_database_user 'api-bench' do
   action :grant
 end
 
+template "/etc/nginx/sites-available/leaderboard-rails.api" do
+  source "leaderboard-rails.nginx.conf"
+end
+
+link "/etc/nginx/sites-enabled/leaderboard-rails.api" do
+  to "/etc/nginx/sites-available/leaderboard-rails.api"
+end
+
 template "/tmp/leaderboard-rails.god" do
   source "leaderboard-rails.god"
 end
