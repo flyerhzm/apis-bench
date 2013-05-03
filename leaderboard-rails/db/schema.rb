@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423124417) do
+ActiveRecord::Schema.define(:version => 20130426003704) do
 
   create_table "games", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20130423124417) do
     t.datetime "updated_at", :null => false
     t.integer  "game_id"
   end
+
+  add_index "leaderboards", ["game_id"], :name => "index_leaderboards_on_game_id"
 
   create_table "scores", :force => true do |t|
     t.integer  "value"
