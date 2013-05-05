@@ -1,0 +1,31 @@
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'activerecord'
+gem 'sinatra-activerecord', require: 'sinatra/activerecord'
+gem "tilt-jbuilder", :require => "sinatra/jbuilder"
+
+gem 'mysql2'
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+gem 'unicorn'
+
+gem 'require_all'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'debugger'
+
+gem 'faker', require: false
+
+group :test do
+  gem 'rspec'
+  gem 'factory_girl'
+  gem 'rack-test'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+end
