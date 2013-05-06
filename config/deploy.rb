@@ -20,5 +20,6 @@ namespace :deploy do
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "rvmsudo god restart leaderboard-rails.unicorn"
+    run "rvmsudo god restart leaderboard-rails-api.unicorn"
   end
 end
