@@ -2,7 +2,7 @@ class Leaderboard < ActiveRecord::Base
   PER_PAGE = 10
   belongs_to :game
   has_many :scores
-  attr_accessible :name
+  attr_accessible :name, :game_id
 
   def self.page(page)
     offset = (page - 1) * PER_PAGE

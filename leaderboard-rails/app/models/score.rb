@@ -2,7 +2,7 @@ class Score < ActiveRecord::Base
   PER_PAGE = 10
   belongs_to :user
   belongs_to :leaderboard
-  attr_accessible :value, :user
+  attr_accessible :value, :leaderboard_id, :user_id
 
   scope :sort_by_value, -> { order("value desc") }
 

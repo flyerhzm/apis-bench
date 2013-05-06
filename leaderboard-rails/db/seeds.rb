@@ -1,4 +1,5 @@
 require 'faker'
+require 'activerecord-import'
 
 User.delete_all
 Score.delete_all
@@ -9,13 +10,37 @@ GAME_COUNT = Rails.env.production? ? 10 : 1
 LEADERBOARD_COUNT = Rails.env.production? ? 100 : 10
 SCORE_COUNT = Rails.env.production? ? 100_000 : 100
 
+games = []
 GAME_COUNT.times do
-  game = Game.create name: Faker::Name.name
+  games << Game.new(name: Faker::Name.name)
+end
+Game.import games
+
+game_id = Game.order("id asc").first.id
+GAME_COUNT.times do
+  leaderboards = []
   LEADERBOARD_COUNT.times do
-    leaderboard = game.leaderboards.create name: Faker::Name.name
-    SCORE_COUNT.times do
-      user = User.create name: Faker::Name.name, email: Faker::Internet.email
-      leaderboard.scores.create value: rand(1_000_000_000), user: user
-    end
+    leaderboards << Leaderboard.new(name: Faker::Name.name, game_id: rand(GAME_COUNT) + game_id)
   end
+  Leaderboard.import leaderboards
+end
+
+leaderboard_id = Leaderboard.order("id asc").first.id
+LEADERBOARD_COUNT.times do |i|
+  users = []
+  SCORE_COUNT.times do
+    users << User.new(name: Faker::Name.name, email: Faker::Internet.email)
+  end
+  User.import users
+
+  user_id = User.order("id asc").first.id
+  scores = []
+  SCORE_COUNT.times do
+    scores << Score.new(
+      value: rand(1_000_000_000),
+      leaderboard_id: rand(LEADERBOARD_COUNT) + leaderboard_id,
+      user_id: SCORE_COUNT * i + rand(SCORE_COUNT) + user_id
+    )
+  end
+  Score.import scores
 end
