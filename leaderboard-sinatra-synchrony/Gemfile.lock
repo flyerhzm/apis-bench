@@ -95,6 +95,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   database_cleaner
+  em-synchrony
   factory_girl
   faker
   mysql2
