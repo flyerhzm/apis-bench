@@ -1,0 +1,5 @@
+#!/usr/bin/env rake
+require "sinatra"
+require "sinatra/activerecord"
+require "sinatra/activerecord/rake"
+require './config/environment'
