@@ -29,6 +29,8 @@ gem 'jbuilder'
 
 gem 'unicorn'
 
+gem 'thin'
+
 # Deploy with Capistrano
 # gem 'capistrano'
 
