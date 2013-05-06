@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe LeaderboardsApp do
+describe LeaderboardsAPI do
   include Rack::Test::Methods
 
   def app
-    LeaderboardsApp
+    LeaderboardsAPI
   end
 
   let(:game) { FactoryGirl.create(:game) }

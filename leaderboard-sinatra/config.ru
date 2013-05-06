@@ -5,7 +5,7 @@ require 'bundler/setup'
 env = ENV["RACK_ENV"] || "development"
 Bundler.require(:default, env.to_sym)
 require_all "app/models/*"
-require_all "app/controllers/*"
+require_all "app/apis/*"
 
 use ActiveRecord::ConnectionAdapters::ConnectionManagement
-run LeaderboardsApp
+run LeaderboardsAPI

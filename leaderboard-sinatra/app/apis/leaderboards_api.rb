@@ -1,6 +1,4 @@
-class LeaderboardsApp < Sinatra::Base
-  set :views, File.join(File.dirname(__FILE__), "../views")
-
+class LeaderboardsAPI < BaseAPI
   get '/games/:game_id/leaderboards.json' do
     @game = Game.find(params[:game_id])
     page = params[:page] ? params[:page].to_i : 1

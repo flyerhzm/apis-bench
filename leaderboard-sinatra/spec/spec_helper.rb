@@ -2,10 +2,10 @@ require 'bundler/setup'
 Bundler.require(:default, :test)
 
 set :environment, :test
-require_relative '../config/environment'
+set :database, "mysql2://root@localhost/api_bench_test"
 require_all 'spec/factories/*'
 require_all 'app/models/*'
-require_all 'app/controllers/*'
+require_all 'app/apis/*'
 
 DatabaseCleaner.strategy = :truncation
 
