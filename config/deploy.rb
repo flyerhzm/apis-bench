@@ -21,5 +21,15 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "rvmsudo god restart leaderboard-rails.unicorn"
     run "rvmsudo god restart leaderboard-rails-api.unicorn"
+    run "rvmsudo god restart leaderboard-sinatra.unicorn"
+    run "rvmsudo god restart leaderboard-grape.unicorn"
+  end
+
+  task :migrate do
+    run "cd #{current_path}/leaderboard-rails; RAILS_ENV=production bundle exec rake db:migrate"
+  end
+
+  task :seed do
+    run "cd #{current_path}/leaderboard-rails; RAILS_ENV=production bundle exec rake db:seed"
   end
 end
