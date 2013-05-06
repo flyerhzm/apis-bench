@@ -34,10 +34,6 @@ template "/tmp/leaderboard-rails.god" do
   source "leaderboard-rails.god"
 end
 
-template "/tmp/god.conf" do
-  source "god.conf"
-end
-
 template "/etc/nginx/sites-available/leaderboard-rails-api" do
   source "leaderboard-rails-api.nginx.conf"
 end
@@ -48,6 +44,30 @@ end
 
 template "/tmp/leaderboard-rails-api.god" do
   source "leaderboard-rails-api.god"
+end
+
+template "/etc/nginx/sites-available/leaderboard-sinatra" do
+  source "leaderboard-sinatra.nginx.conf"
+end
+
+link "/etc/nginx/sites-enabled/leaderboard-sinatra" do
+  to "/etc/nginx/sites-available/leaderboard-sinatra"
+end
+
+template "/tmp/leaderboard-sinatra.god" do
+  source "leaderboard-sinatra.god"
+end
+
+template "/etc/nginx/sites-available/leaderboard-grape" do
+  source "leaderboard-grape.nginx.conf"
+end
+
+link "/etc/nginx/sites-enabled/leaderboard-grape" do
+  to "/etc/nginx/sites-available/leaderboard-grape"
+end
+
+template "/tmp/leaderboard-grape.god" do
+  source "leaderboard-grape.god"
 end
 
 template "/tmp/god.conf" do
