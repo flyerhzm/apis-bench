@@ -8,7 +8,7 @@ Game.delete_all
 
 GAME_COUNT = Rails.env.production? ? 10 : 1
 LEADERBOARD_COUNT = Rails.env.production? ? 100 : 10
-SCORE_COUNT = Rails.env.production? ? 100_000 : 100
+SCORE_COUNT = Rails.env.production? ? 10_000 : 100
 
 games = []
 GAME_COUNT.times do
