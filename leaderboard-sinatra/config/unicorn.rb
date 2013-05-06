@@ -1,6 +1,6 @@
 shared_path = "/home/deploy/sites/apis-bench/shared"
 
-worker_processes 4
+worker_processes 2
 working_directory "/home/deploy/sites/apis-bench/current/leaderboard-sinatra"
 listen "/tmp/leaderboard-sinatra.unicorn.sock", :backlog => 64
 timeout 30

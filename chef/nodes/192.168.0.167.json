@@ -25,6 +25,9 @@
       "passwordless": "true"
     }
   },
+  "nginx": {
+    "worker_processes": 2
+  },
   "run_list":[
     "recipe[mysql::server]",
     "recipe[mysql::client]",
