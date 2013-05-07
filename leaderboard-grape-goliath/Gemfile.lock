@@ -1,0 +1,117 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (3.2.13)
+      activesupport (= 3.2.13)
+      builder (~> 3.0.0)
+    activerecord (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activesupport (3.2.13)
+      i18n (= 0.6.1)
+      multi_json (~> 1.0)
+    arel (3.0.2)
+    async-rack (0.5.1)
+      rack (~> 1.1)
+    backports (2.6.7)
+    builder (3.0.4)
+    database_cleaner (0.9.1)
+    descendants_tracker (0.0.1)
+    diff-lcs (1.2.4)
+    em-synchrony (1.0.3)
+      eventmachine (>= 1.0.0.beta.1)
+    em-websocket (0.5.0)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.5.3)
+    eventmachine (1.0.3)
+    factory_girl (4.2.0)
+      activesupport (>= 3.0.0)
+    faker (1.1.2)
+      i18n (~> 0.5)
+    goliath (1.0.1)
+      async-rack
+      em-synchrony (>= 1.0.0)
+      em-websocket
+      eventmachine (>= 1.0.0.beta.4)
+      http_parser.rb (= 0.5.3)
+      log4r
+      multi_json
+      rack (>= 1.2.2)
+      rack-contrib
+      rack-respond_to
+    grape (0.4.1)
+      activesupport
+      builder
+      hashie (>= 1.2.0)
+      multi_json (>= 1.3.2)
+      multi_xml (>= 0.5.2)
+      rack (>= 1.3.0)
+      rack-accept
+      rack-mount
+      virtus
+    grape-jbuilder (0.1.0)
+      grape (>= 0.3)
+      i18n
+      jbuilder
+      tilt
+      tilt-jbuilder (>= 0.4.0)
+    hashie (2.0.4)
+    http_parser.rb (0.5.3)
+    i18n (0.6.1)
+    jbuilder (1.4.0)
+      activesupport (>= 3.0.0)
+      multi_json (>= 1.2.0)
+    log4r (1.1.10)
+    multi_json (1.7.2)
+    multi_xml (0.5.3)
+    mysql2 (0.3.11)
+    rack (1.4.5)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
+    rack-accept-media-types (0.9)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
+    rack-mount (0.8.3)
+      rack (>= 1.0.0)
+    rack-respond_to (0.9.8)
+      rack-accept-media-types (>= 0.6)
+    rack-test (0.6.2)
+      rack (>= 1.0)
+    require_all (1.2.1)
+    rspec (2.13.0)
+      rspec-core (~> 2.13.0)
+      rspec-expectations (~> 2.13.0)
+      rspec-mocks (~> 2.13.0)
+    rspec-core (2.13.1)
+    rspec-expectations (2.13.0)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.13.1)
+    shoulda-matchers (2.0.0)
+      activesupport (>= 3.0.0)
+    tilt (1.4.0)
+    tilt-jbuilder (0.4.1)
+      jbuilder
+      tilt
+    tzinfo (0.3.37)
+    virtus (0.5.4)
+      backports (~> 2.6.1)
+      descendants_tracker (~> 0.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activerecord
+  database_cleaner
+  factory_girl
+  faker
+  goliath
+  grape
+  grape-jbuilder
+  mysql2
+  rack-test
+  require_all
+  rspec
+  shoulda-matchers
