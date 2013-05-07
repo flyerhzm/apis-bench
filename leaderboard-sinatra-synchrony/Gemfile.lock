@@ -40,7 +40,6 @@ GEM
     jbuilder (1.4.0)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
-    kgio (2.7.4)
     multi_json (1.7.2)
     mysql2 (0.3.11)
     rack (1.4.5)
@@ -49,7 +48,6 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    raindrops (0.10.0)
     require_all (1.2.1)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
@@ -84,10 +82,6 @@ GEM
       jbuilder
       tilt
     tzinfo (0.3.37)
-    unicorn (4.3.1)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
@@ -108,4 +102,3 @@ DEPENDENCIES
   sinatra-synchrony
   thin
   tilt-jbuilder
-  unicorn
