@@ -38,7 +38,7 @@ LEADERBOARD_COUNT.times do |i|
   SCORE_COUNT.times do
     scores << Score.new(
       value: rand(1_000_000_000),
-      leaderboard_id: rand(LEADERBOARD_COUNT) + leaderboard_id,
+      leaderboard_id: rand(LEADERBOARD_COUNT * GAME_COUNT) + leaderboard_id,
       user_id: SCORE_COUNT * i + rand(SCORE_COUNT) + user_id
     )
   end
