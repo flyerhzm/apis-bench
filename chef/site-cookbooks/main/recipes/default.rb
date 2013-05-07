@@ -32,6 +32,14 @@ end
 
 template "/tmp/leaderboard-rails.god" do
   source "leaderboard-rails.god"
+  user 'deploy'
+  group 'deploy'
+end
+
+template "/tmp/leaderboard-rails.unicorn.rb" do
+  source "leaderboard-rails.unicorn.rb"
+  user 'deploy'
+  group 'deploy'
 end
 
 template "/etc/nginx/sites-available/leaderboard-rails-api" do
@@ -44,6 +52,14 @@ end
 
 template "/tmp/leaderboard-rails-api.god" do
   source "leaderboard-rails-api.god"
+  user 'deploy'
+  group 'deploy'
+end
+
+template "/tmp/leaderboard-rails-api.unicorn.rb" do
+  source "leaderboard-rails-api.unicorn.rb"
+  user 'deploy'
+  group 'deploy'
 end
 
 template "/etc/nginx/sites-available/leaderboard-sinatra" do
@@ -56,6 +72,14 @@ end
 
 template "/tmp/leaderboard-sinatra.god" do
   source "leaderboard-sinatra.god"
+  user 'deploy'
+  group 'deploy'
+end
+
+template "/tmp/leaderboard-sinatra.unicorn.rb" do
+  source "leaderboard-sinatra.unicorn.rb"
+  user 'deploy'
+  group 'deploy'
 end
 
 template "/etc/nginx/sites-available/leaderboard-grape" do
@@ -68,12 +92,50 @@ end
 
 template "/tmp/leaderboard-grape.god" do
   source "leaderboard-grape.god"
+  user 'deploy'
+  group 'deploy'
+end
+
+template "/tmp/leaderboard-grape.unicorn.rb" do
+  source "leaderboard-grape.unicorn.rb"
+  user 'deploy'
+  group 'deploy'
+end
+
+template "/etc/nginx/sites-available/leaderboard-sinatra-synchrony" do
+  source "leaderboard-sinatra-synchrony.nginx.conf"
+end
+
+link "/etc/nginx/sites-enabled/leaderboard-sinatra-synchrony" do
+  to "/etc/nginx/sites-available/leaderboard-sinatra-synchrony"
+end
+
+template "/tmp/leaderboard-sinatra-synchrony.god" do
+  source "leaderboard-sinatra-synchrony.god"
+  user 'deploy'
+  group 'deploy'
+end
+
+template "/etc/nginx/sites-available/leaderboard-grape-goliath" do
+  source "leaderboard-grape-goliath.nginx.conf"
+end
+
+link "/etc/nginx/sites-enabled/leaderboard-grape-goliath" do
+  to "/etc/nginx/sites-available/leaderboard-grape-goliath"
+end
+
+template "/tmp/leaderboard-grape-goliath.god" do
+  source "leaderboard-grape-goliath.god"
+  user 'deploy'
+  group 'deploy'
 end
 
 template "/tmp/god.conf" do
   source "god.conf"
+  user 'deploy'
+  group 'deploy'
 end
 
 execute "god_start" do
-  command "rvmsudo god -c /tmp/god.conf"
+  command "rvmsudo god terminate 2&>/dev/null; rvmsudo god -c /tmp/god.conf"
 end

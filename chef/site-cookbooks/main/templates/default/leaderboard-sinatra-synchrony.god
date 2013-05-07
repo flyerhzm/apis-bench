@@ -1,24 +1,19 @@
 #!/usr/bin/ruby
 
-rails_root = '/home/deploy/sites/apis-bench/current/leaderboard-rails'
+sinatra_root = '/home/deploy/sites/apis-bench/current/leaderboard-sinatra-synchrony'
 shared_root = '/home/deploy/sites/apis-bench/shared'
 
 God.watch do |w|
-  w.name = "leaderboard-rails.unicorn"
+  w.name = "leaderboard-sinatra-synchrony.thin"
   w.interval = 30.seconds # default
 
-  # unicorn needs to be run from the rails root
-  w.start = "cd #{rails_root} && bundle exec unicorn -c /tmp/leaderboard-rails.unicorn.rb -E production -D"
+  w.start = "cd #{sinatra_root} && RACK_ENV=production bundle exec thin start -e production -P #{shared_root}/pids/leaderboard-sinatra-synchrony.thin.pid -S /tmp/leaderboard-sinatra-synchrony.thin.sock -l #{shared_root}/log/leaderboard-sinatra-synchrony.thin.log -d"
 
-  # QUIT gracefully shuts down workers
-  w.stop = "kill -QUIT `cat #{shared_root}/pids/leaderboard-rails.unicorn.pid`"
-
-  # USR2 causes the master to re-create itself and spawn a new worker pool
-  w.restart = "kill -USR2 `cat #{shared_root}/pids/leaderboard-rails.unicorn.pid`"
+  w.stop = "kill -QUIT `cat #{shared_root}/pids/leaderboard-sinatra-synchrony.thin.pid`"
 
   w.start_grace = 10.seconds
   w.restart_grace = 10.seconds
-  w.pid_file = "#{shared_root}/pids/leaderboard-rails.unicorn.pid"
+  w.pid_file = "#{shared_root}/pids/leaderboard-sinatra-synchrony.thin.pid"
 
   w.uid = 'deploy'
   w.gid = 'deploy'

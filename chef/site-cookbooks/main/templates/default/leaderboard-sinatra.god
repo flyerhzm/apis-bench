@@ -8,7 +8,7 @@ God.watch do |w|
   w.interval = 30.seconds # default
 
   # unicorn needs to be run from the rails root
-  w.start = "cd #{sinatra_root} && RACK_ENV=production bundle exec unicorn -c #{sinatra_root}/config/unicorn.rb -E production -D"
+  w.start = "cd #{sinatra_root} && RACK_ENV=production bundle exec unicorn -c /tmp/leaderboard-sinatra.unicorn.rb -E production -D"
 
   # QUIT gracefully shuts down workers
   w.stop = "kill -QUIT `cat #{shared_root}/pids/leaderboard-sinatra.unicorn.pid`"
