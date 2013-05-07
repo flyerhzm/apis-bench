@@ -23,6 +23,8 @@ namespace :deploy do
     run "rvmsudo god restart leaderboard-rails-api.unicorn"
     run "rvmsudo god restart leaderboard-sinatra.unicorn"
     run "rvmsudo god restart leaderboard-grape.unicorn"
+    run "rvmsudo god restart leaderboard-sinatra-synchrony.thin"
+    run "rvmsudo god restart leaderboard-grape.goliath"
   end
 
   task :migrate do
