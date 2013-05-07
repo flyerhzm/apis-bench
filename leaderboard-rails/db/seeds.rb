@@ -1,13 +1,13 @@
 require 'faker'
 require 'activerecord-import'
 
-User.delete_all
-Score.delete_all
-Leaderboard.delete_all
-Game.delete_all
+%w(users scores leaderboards games).each do |table|
+  ActiveRecord::Base.connection.execute("TRUNCATE #{table}")
+  ActiveRecord::Base.connection.execute("ALTER TABLE #{table} AUTO_INCREMENT=1")
+end
 
 GAME_COUNT = Rails.env.production? ? 10 : 1
-LEADERBOARD_COUNT = Rails.env.production? ? 100 : 10
+LEADERBOARD_COUNT = Rails.env.production? ? 1000 : 10
 SCORE_COUNT = Rails.env.production? ? 10_000 : 100
 
 games = []
@@ -19,7 +19,7 @@ Game.import games
 game_id = Game.order("id asc").first.id
 GAME_COUNT.times do
   leaderboards = []
-  LEADERBOARD_COUNT.times do
+  (LEADERBOARD_COUNT / GAME_COUNT).times do
     leaderboards << Leaderboard.new(name: Faker::Name.name, game_id: rand(GAME_COUNT) + game_id)
   end
   Leaderboard.import leaderboards
@@ -38,7 +38,7 @@ LEADERBOARD_COUNT.times do |i|
   SCORE_COUNT.times do
     scores << Score.new(
       value: rand(1_000_000_000),
-      leaderboard_id: rand(LEADERBOARD_COUNT * GAME_COUNT) + leaderboard_id,
+      leaderboard_id: rand(LEADERBOARD_COUNT) + leaderboard_id,
       user_id: SCORE_COUNT * i + rand(SCORE_COUNT) + user_id
     )
   end
