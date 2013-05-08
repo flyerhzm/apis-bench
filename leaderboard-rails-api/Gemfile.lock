@@ -44,6 +44,7 @@ GEM
     kgio (2.7.4)
     multi_json (1.7.2)
     mysql2 (0.3.11)
+    newrelic_rpm (3.5.8.72)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -105,6 +106,7 @@ DEPENDENCIES
   faker
   jbuilder
   mysql2
+  newrelic_rpm
   rails-api
   rspec-rails
   shoulda-matchers
