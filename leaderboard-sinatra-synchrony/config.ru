@@ -7,5 +7,6 @@ Bundler.require(:default, env.to_sym)
 require_all "app/models/*"
 require_all "app/apis/*"
 
+DependencyDetection.detect!
 use ActiveRecord::ConnectionAdapters::ConnectionManagement
 run LeaderboardsAPI
