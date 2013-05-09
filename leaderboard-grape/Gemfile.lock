@@ -46,14 +46,14 @@ GEM
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
     kgio (2.7.4)
-    multi_json (1.7.2)
+    multi_json (1.7.3)
     multi_xml (0.5.3)
     mysql2 (0.3.11)
-    newrelic-grape (1.2.1)
+    newrelic-grape (1.2.0)
       grape
       newrelic_rpm
-    newrelic_rpm (3.5.8.72)
-    rack (1.4.5)
+    newrelic_rpm (3.6.1.88)
+    rack (1.5.2)
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-mount (0.8.3)
@@ -62,9 +62,6 @@ GEM
       rack (>= 1.0)
     raindrops (0.10.0)
     require_all (1.2.1)
-    rpm_contrib (2.1.11)
-      newrelic_rpm (>= 3.1.1)
-      newrelic_rpm (>= 3.1.1)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -104,10 +101,9 @@ DEPENDENCIES
   grape-jbuilder
   mysql2
   newrelic-grape
-  newrelic_rpm (= 3.5.8.72)
+  newrelic_rpm
   rack-test
   require_all
-  rpm_contrib
   rspec
   shoulda-matchers
   thin

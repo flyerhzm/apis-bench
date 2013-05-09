@@ -13,8 +13,7 @@ gem 'unicorn'
 
 gem 'thin'
 
-gem 'newrelic_rpm', '3.5.8.72'
-gem 'rpm_contrib'
+gem 'newrelic_rpm'
 gem 'newrelic-grape'
 
 gem 'require_all'

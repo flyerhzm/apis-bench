@@ -15,4 +15,5 @@ class LeaderboardGrape < Grape::API
 end
 
 NewRelic::Agent.after_fork(:force_reconnect => true)
+DependencyDetection.detect!
 run LeaderboardGrape
