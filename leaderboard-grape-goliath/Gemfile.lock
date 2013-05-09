@@ -67,6 +67,10 @@ GEM
     multi_json (1.7.2)
     multi_xml (0.5.3)
     mysql2 (0.3.11)
+    newrelic-grape (1.2.1)
+      grape
+      newrelic_rpm
+    newrelic_rpm (3.6.1.88)
     rack (1.4.5)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -112,6 +116,8 @@ DEPENDENCIES
   grape
   grape-jbuilder
   mysql2
+  newrelic-grape
+  newrelic_rpm
   rack-test
   require_all
   rspec
