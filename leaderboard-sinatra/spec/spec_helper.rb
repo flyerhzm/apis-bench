@@ -1,8 +1,8 @@
 require 'bundler/setup'
 Bundler.require(:default, :test)
+ENV['RACK_ENV'] = "test"
 
-set :environment, :test
-set :database, "mysql2://root@localhost/api_bench_test"
+require_relative '../config/environment'
 require_all 'spec/factories/*'
 require_all 'app/models/*'
 require_all 'app/apis/*'
