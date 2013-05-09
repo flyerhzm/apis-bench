@@ -14,4 +14,5 @@ class LeaderboardGrape < Grape::API
   mount UsersAPI
 end
 
+NewRelic::Agent.after_fork(:force_reconnect => true)
 run LeaderboardGrape
