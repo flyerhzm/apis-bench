@@ -52,7 +52,7 @@ GEM
     newrelic-grape (1.2.1)
       grape
       newrelic_rpm
-    newrelic_rpm (3.6.1.88)
+    newrelic_rpm (3.5.8.72)
     rack (1.4.5)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -104,7 +104,7 @@ DEPENDENCIES
   grape-jbuilder
   mysql2
   newrelic-grape
-  newrelic_rpm
+  newrelic_rpm (= 3.5.8.72)
   rack-test
   require_all
   rpm_contrib
