@@ -12,8 +12,6 @@ gem 'mysql2'
 gem 'unicorn'
 gem 'thin'
 
-gem 'newrelic_rpm'
-
 gem 'require_all'
 
 # Deploy with Capistrano

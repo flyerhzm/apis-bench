@@ -13,9 +13,6 @@ gem 'unicorn'
 
 gem 'thin'
 
-gem 'newrelic_rpm'
-gem 'newrelic-grape'
-
 gem 'require_all'
 
 # Deploy with Capistrano

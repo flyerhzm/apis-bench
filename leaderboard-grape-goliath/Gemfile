@@ -12,9 +12,6 @@ gem 'mysql2'
 gem 'goliath'
 gem 'em-synchrony', require: ['em-synchrony', 'em-synchrony/mysql2', 'em-synchrony/activerecord']
 
-gem 'newrelic_rpm'
-gem 'newrelic-grape'
-
 gem 'require_all'
 
 # Deploy with Capistrano

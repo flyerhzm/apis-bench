@@ -8,6 +8,5 @@ require './config/environment'
 require_all "app/models/*"
 require_all "app/apis/*"
 
-NewRelic::Agent.after_fork(:force_reconnect => true)
 use ActiveRecord::ConnectionAdapters::ConnectionManagement
 run LeaderboardsAPI

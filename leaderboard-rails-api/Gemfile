@@ -17,8 +17,6 @@ gem 'unicorn'
 
 gem 'thin'
 
-gem 'newrelic_rpm'
-
 # Deploy with Capistrano
 # gem 'capistrano'
 
