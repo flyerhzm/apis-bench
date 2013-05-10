@@ -135,7 +135,3 @@ template "/tmp/god.conf" do
   user 'deploy'
   group 'deploy'
 end
-
-execute "god_start" do
-  command "rvmsudo god terminate 2&>/dev/null; rvmsudo god -c /tmp/god.conf"
-end
