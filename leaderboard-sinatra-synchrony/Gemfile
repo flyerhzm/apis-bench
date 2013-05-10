@@ -14,8 +14,6 @@ gem 'mysql2'
 
 gem 'thin'
 
-gem 'newrelic_rpm'
-
 gem 'require_all'
 
 # Deploy with Capistrano
