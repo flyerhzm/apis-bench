@@ -1,6 +1,6 @@
 shared_path = "/home/deploy/sites/apis-bench/shared"
 
-worker_processes 2
+worker_processes 1
 working_directory "/home/deploy/sites/apis-bench/current/leaderboard-rails-api"
 listen "/tmp/leaderboard-rails-api.unicorn.sock", :backlog => 64
 timeout 30
