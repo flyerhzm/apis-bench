@@ -54,8 +54,6 @@ GEM
       i18n (~> 0.5)
     hike (1.2.2)
     i18n (0.6.1)
-    jbuilder (1.0.2)
-      activesupport (>= 3.0.0)
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
@@ -69,6 +67,7 @@ GEM
     mime-types (1.23)
     multi_json (1.7.2)
     mysql2 (0.3.11)
+    oj (2.0.13)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -145,9 +144,9 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   factory_girl_rails
   faker
-  jbuilder
   jquery-rails
   mysql2
+  oj
   rails (= 3.2.13)
   rspec-rails
   sass-rails (~> 3.2.3)

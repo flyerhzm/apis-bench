@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'oj'
+
 gem 'sinatra'
 gem 'activerecord', require: 'active_record'
-gem "tilt-jbuilder", :require => "sinatra/jbuilder"
 
 gem 'mysql2'
 

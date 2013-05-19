@@ -23,16 +23,12 @@ describe UsersAPI do
 
     it "gets scores sort by value" do
       get "/leaderboards/#{leaderboard.id}/users.json"
-      expect(MultiJson.decode(last_response.body)).to eq [
-        {"value" => 15, "user" => {"id" => user1.id, "name" => user1.name}},
-        {"value" => 10, "user" => {"id" => user3.id, "name" => user3.name}},
-        {"value" => 5, "user" => {"id" => user2.id, "name" => user2.name}}
-      ]
+      expect(last_response.body).to eq MultiJson.encode([@score1, @score3, @score2])
     end
 
     it "gets nothing for page 2" do
       get "/leaderboards/#{leaderboard.id}/users.json?page=2"
-      expect(MultiJson.decode(last_response.body)).to eq []
+      expect(last_response.body).to eq MultiJson.encode([])
     end
   end
 
@@ -48,7 +44,7 @@ describe UsersAPI do
     end
 
     it "gets user's score and rank" do
-      expect(MultiJson.decode(last_response.body)).to eq({"score" => 3, "rank" => 3})
+      expect(last_response.body).to eq MultiJson.encode("score" => 3, "rank" => 3)
     end
   end
 end

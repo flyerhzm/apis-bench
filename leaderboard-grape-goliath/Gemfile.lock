@@ -51,22 +51,14 @@ GEM
       rack-accept
       rack-mount
       virtus
-    grape-jbuilder (0.1.0)
-      grape (>= 0.3)
-      i18n
-      jbuilder
-      tilt
-      tilt-jbuilder (>= 0.4.0)
     hashie (2.0.4)
     http_parser.rb (0.5.3)
     i18n (0.6.1)
-    jbuilder (1.4.0)
-      activesupport (>= 3.0.0)
-      multi_json (>= 1.2.0)
     log4r (1.1.10)
     multi_json (1.7.2)
     multi_xml (0.5.3)
     mysql2 (0.3.11)
+    oj (2.0.13)
     rack (1.4.5)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -90,10 +82,6 @@ GEM
     rspec-mocks (2.13.1)
     shoulda-matchers (2.0.0)
       activesupport (>= 3.0.0)
-    tilt (1.4.0)
-    tilt-jbuilder (0.4.1)
-      jbuilder
-      tilt
     tzinfo (0.3.37)
     virtus (0.5.4)
       backports (~> 2.6.1)
@@ -110,8 +98,8 @@ DEPENDENCIES
   faker
   goliath
   grape
-  grape-jbuilder
   mysql2
+  oj
   rack-test
   require_all
   rspec

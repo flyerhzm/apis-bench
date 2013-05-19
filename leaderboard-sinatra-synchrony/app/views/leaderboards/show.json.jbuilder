@@ -1,1 +1,0 @@
-json.(@leaderboard, :id, :name)

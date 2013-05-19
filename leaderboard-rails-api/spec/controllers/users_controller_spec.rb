@@ -17,16 +17,12 @@ describe UsersController do
 
     it "gets scores sort by value" do
       get :index, leaderboard_id: leaderboard.id, format: 'json'
-      expect(MultiJson.decode(response.body)).to eq [
-        {"value" => 15, "user" => {"id" => user1.id, "name" => user1.name}},
-        {"value" => 10, "user" => {"id" => user3.id, "name" => user3.name}},
-        {"value" => 5, "user" => {"id" => user2.id, "name" => user2.name}}
-      ]
+      expect(response.body).to eq MultiJson.encode([@score1, @score3, @score2])
     end
 
     it "gets nothing for page 2" do
       get :index, leaderboard_id: leaderboard.id, page: 2, format: 'json'
-      expect(MultiJson.decode(response.body)).to eq []
+      expect(response.body).to eq MultiJson.encode([])
     end
   end
 
@@ -42,7 +38,7 @@ describe UsersController do
     end
 
     it "gets user's score and rank" do
-      expect(MultiJson.decode(response.body)).to eq({"score" => 3, "rank" => 3})
+      expect(response.body).to eq MultiJson.encode({"score" => 3, "rank" => 3})
     end
   end
 end

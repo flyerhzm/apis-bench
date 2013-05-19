@@ -18,15 +18,12 @@ describe LeaderboardsAPI do
 
     it "gets first 2 leaderboards" do
       get "/games/#{game.id}/leaderboards.json"
-      expect(MultiJson.decode(last_response.body)).to eq [
-        {"id" => @leaderboard1.id, "name" => "Leaderboard 1"},
-        {"id" => @leaderboard2.id, "name" => "Leaderboard 2"}
-      ]
+      expect(last_response.body).to eq MultiJson.encode([@leaderboard1, @leaderboard2])
     end
 
     it "gets nothing for page 2" do
       get "/games/#{game.id}/leaderboards.json?page=2"
-      expect(MultiJson.decode(last_response.body)).to eq []
+      expect(last_response.body).to eq MultiJson.encode([])
     end
   end
 
@@ -35,7 +32,7 @@ describe LeaderboardsAPI do
     before { get "/games/#{game.id}/leaderboards/#{leaderboard.id}.json" }
 
     it "gets leaderboard" do
-      expect(MultiJson.decode(last_response.body)).to eq({"id" => leaderboard.id, "name" => "Leaderboard"})
+      expect(last_response.body).to eq MultiJson.encode(leaderboard)
     end
   end
 
@@ -43,7 +40,7 @@ describe LeaderboardsAPI do
     before { post "/games/#{game.id}/leaderboards.json", name: "Leaderboard" }
 
     it "get created leaderboard" do
-      expect(MultiJson.decode(last_response.body)).to eq({"id" => Leaderboard.last.id, "name" => "Leaderboard"})
+      expect(last_response.body).to eq MultiJson.encode(Leaderboard.last)
     end
   end
 
@@ -52,7 +49,7 @@ describe LeaderboardsAPI do
     before { put "/games/#{game.id}/leaderboards/#{leaderboard.id}.json", name: "New Leaderboard" }
 
     it "get updates leaderboard" do
-      expect(MultiJson.decode(last_response.body)).to eq({"id" => leaderboard.id, "name" => "New Leaderboard"})
+      expect(last_response.body).to eq MultiJson.encode(Leaderboard.last)
     end
   end
 end

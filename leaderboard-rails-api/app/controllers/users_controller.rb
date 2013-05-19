@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
+  respond_to :json
   before_filter :load_leaderboard
 
   def index
     page = params[:page] ? params[:page].to_i : 1
     @scores = @leaderboard.scores.sort_by_value.page(page)
+    respond_with @scores
   end
 
   def show
