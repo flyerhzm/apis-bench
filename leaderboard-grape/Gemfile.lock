@@ -40,6 +40,10 @@ GEM
     multi_json (1.7.3)
     multi_xml (0.5.3)
     mysql2 (0.3.11)
+    newrelic-grape (1.2.0)
+      grape
+      newrelic_rpm
+    newrelic_rpm (3.6.1.88)
     oj (2.0.13)
     rack (1.5.2)
     rack-accept (0.4.5)
@@ -83,6 +87,8 @@ DEPENDENCIES
   faker
   grape
   mysql2
+  newrelic-grape
+  newrelic_rpm
   oj
   rack-test
   require_all

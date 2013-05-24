@@ -67,6 +67,7 @@ GEM
     mime-types (1.23)
     multi_json (1.7.2)
     mysql2 (0.3.11)
+    newrelic_rpm (3.5.8.72)
     oj (2.0.13)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -146,6 +147,7 @@ DEPENDENCIES
   faker
   jquery-rails
   mysql2
+  newrelic_rpm
   oj
   rails (= 3.2.13)
   rspec-rails
