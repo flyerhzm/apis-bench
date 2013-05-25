@@ -13,7 +13,7 @@ development:
   encoding: utf8
   reconnect: false
   database: api_bench_development
-  pool: 5
+  pool: 1
   username: root
   password:
   socket: /tmp/mysql.sock

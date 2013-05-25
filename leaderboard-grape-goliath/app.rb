@@ -12,6 +12,12 @@ class LeaderboardGrape < Grape::API
   mount UsersAPI
 end
 
+fiber_pool = FiberPool.new(100)
+
+Goliath::Request.execute_block = proc do |&block|
+  fiber_pool.spawn(&block)
+end
+
 class Application < Goliath::API
   def response(env)
     ::LeaderboardGrape.call(env)
