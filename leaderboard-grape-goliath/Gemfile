@@ -12,7 +12,6 @@ gem 'mysql2'
 
 gem 'goliath'
 gem 'em-synchrony', require: ['em-synchrony', 'em-synchrony/mysql2', 'em-synchrony/activerecord']
-gem 'fiber_pool'
 
 gem 'newrelic_rpm'
 gem 'newrelic-grape'

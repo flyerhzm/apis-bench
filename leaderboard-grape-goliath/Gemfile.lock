@@ -30,7 +30,6 @@ GEM
       activesupport (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
-    fiber_pool (1.0.0)
     goliath (1.0.1)
       async-rack
       em-synchrony (>= 1.0.0)
@@ -101,7 +100,6 @@ DEPENDENCIES
   em-synchrony
   factory_girl
   faker
-  fiber_pool
   goliath
   grape
   mysql2
