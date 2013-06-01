@@ -9,7 +9,6 @@ require_all "app/models/*"
 require_all "app/apis/*"
 
 class LeaderboardGrape < Grape::API
-  use ActiveRecord::ConnectionAdapters::ConnectionManagement
   mount LeaderboardsAPI
   mount UsersAPI
 end
