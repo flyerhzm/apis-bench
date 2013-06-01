@@ -23,6 +23,8 @@ namespace :deploy do
     run "rvmsudo god restart leaderboard-rails-api.unicorn"
     run "rvmsudo god restart leaderboard-sinatra.unicorn"
     run "rvmsudo god restart leaderboard-grape.unicorn"
+    run "rvmsudo god restart leaderboard-sinatra.rainbows"
+    run "rvmsudo god restart leaderboard-grape.rainbows"
     run "rvmsudo god restart leaderboard-sinatra-synchrony.thin"
     run "rvmsudo god restart leaderboard-grape.goliath"
   end
@@ -33,5 +35,9 @@ namespace :deploy do
 
   task :seed do
     run "cd #{current_path}/leaderboard-rails; RAILS_ENV=production bundle exec rake db:seed"
+  end
+
+  task :start_god do
+    run "rvmsudo god -c /tmp/god.conf"
   end
 end
