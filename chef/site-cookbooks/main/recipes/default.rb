@@ -46,8 +46,8 @@ template "/tmp/leaderboard-rails-api.unicorn.rb" do
   group 'deploy'
 end
 
-template "/tmp/leaderboard-sinatra.god" do
-  source "leaderboard-sinatra.god"
+template "/tmp/leaderboard-sinatra.unicorn.god" do
+  source "leaderboard-sinatra.unicorn.god"
   user 'deploy'
   group 'deploy'
 end
@@ -58,14 +58,38 @@ template "/tmp/leaderboard-sinatra.unicorn.rb" do
   group 'deploy'
 end
 
-template "/tmp/leaderboard-grape.god" do
-  source "leaderboard-grape.god"
+template "/tmp/leaderboard-grape.unicorn.god" do
+  source "leaderboard-grape.unicorn.god"
   user 'deploy'
   group 'deploy'
 end
 
 template "/tmp/leaderboard-grape.unicorn.rb" do
   source "leaderboard-grape.unicorn.rb"
+  user 'deploy'
+  group 'deploy'
+end
+
+template "/tmp/leaderboard-sinatra.rainbows.god" do
+  source "leaderboard-sinatra.rainbows.god"
+  user 'deploy'
+  group 'deploy'
+end
+
+template "/tmp/leaderboard-sinatra.rainbows.rb" do
+  source "leaderboard-sinatra.rainbows.rb"
+  user 'deploy'
+  group 'deploy'
+end
+
+template "/tmp/leaderboard-grape.rainbows.god" do
+  source "leaderboard-grape.rainbows.god"
+  user 'deploy'
+  group 'deploy'
+end
+
+template "/tmp/leaderboard-grape.rainbows.rb" do
+  source "leaderboard-grape.rainbows.rb"
   user 'deploy'
   group 'deploy'
 end

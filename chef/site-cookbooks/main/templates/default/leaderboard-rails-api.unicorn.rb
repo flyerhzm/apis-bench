@@ -2,7 +2,7 @@ shared_path = "/home/deploy/sites/apis-bench/shared"
 
 worker_processes 1
 working_directory "/home/deploy/sites/apis-bench/current/leaderboard-rails-api"
-listen "/tmp/leaderboard-rails-api.unicorn.sock", :backlog => 64
+listen 4000, :tcp_nopush => true
 timeout 30
 pid shared_path + "/pids/leaderboard-rails-api.unicorn.pid"
 stderr_path shared_path + "/log/leaderboard-rails-api.unicorn.stderr.log"

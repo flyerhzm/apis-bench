@@ -7,7 +7,7 @@ God.watch do |w|
   w.name = "leaderboard-grape.goliath"
   w.interval = 30.seconds # default
 
-  w.start = "cd #{sinatra_root} && NEW_RELIC_APP_NAME=leaderboard-grape-goliath RACK_ENV=production bundle exec ruby app.rb -e production -P #{shared_root}/pids/leaderboard-grape.goliath.pid -S /tmp/leaderboard-grape.goliath.sock -l #{shared_root}/log/leaderboard-grape.goliath.log -d"
+  w.start = "cd #{sinatra_root} && NEW_RELIC_APP_NAME=leaderboard-grape-goliath RACK_ENV=production bundle exec ruby app.rb -e production -p 11000 -P #{shared_root}/pids/leaderboard-grape.goliath.pid -l #{shared_root}/log/leaderboard-grape.goliath.log -d"
 
   w.stop = "kill -QUIT `cat #{shared_root}/pids/leaderboard-grape.goliath.pid`"
 

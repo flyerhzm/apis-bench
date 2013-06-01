@@ -1,12 +1,12 @@
 shared_path = "/home/deploy/sites/apis-bench/shared"
 
 worker_processes 1
-working_directory "/home/deploy/sites/apis-bench/current/leaderboard-sinatra"
-listen 8000, :tcp_nopush => true
+working_directory "/home/deploy/sites/apis-bench/current/leaderboard-grape"
+listen 7000, :tcp_nopush => true
 timeout 30
-pid shared_path + "/pids/leaderboard-sinatra.rainbows.pid"
-stderr_path shared_path + "/log/leaderboard-sinatra.rainbows.stderr.log"
-stdout_path shared_path + "/log/leaderboard-sinatra.rainbows.stdout.log"
+pid shared_path + "/pids/leaderboard-grape.rainbows.pid"
+stderr_path shared_path + "/log/leaderboard-grape.rainbows.stderr.log"
+stdout_path shared_path + "/log/leaderboard-grape.rainbows.stdout.log"
 preload_app true
 
 Rainbows! do

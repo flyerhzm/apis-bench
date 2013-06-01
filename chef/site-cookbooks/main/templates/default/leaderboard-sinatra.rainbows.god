@@ -1,19 +1,24 @@
 #!/usr/bin/ruby
 
-sinatra_root = '/home/deploy/sites/apis-bench/current/leaderboard-sinatra-synchrony'
+sinatra_root = '/home/deploy/sites/apis-bench/current/leaderboard-sinatra'
 shared_root = '/home/deploy/sites/apis-bench/shared'
 
 God.watch do |w|
-  w.name = "leaderboard-sinatra-synchrony.thin"
+  w.name = "leaderboard-sinatra.rainbows"
   w.interval = 30.seconds # default
 
-  w.start = "cd #{sinatra_root} && NEW_RELIC_APP_NAME=leaderboard-sinatra-synchrony RACK_ENV=production bundle exec thin start -e production -p 10000 -P #{shared_root}/pids/leaderboard-sinatra-synchrony.thin.pid -l #{shared_root}/log/leaderboard-sinatra-synchrony.thin.log -d"
+  # rainbows needs to be run from the rails root
+  w.start = "cd #{sinatra_root} && NEW_RELIC_APP_NAME=leaderboard-sinatra RACK_ENV=production bundle exec rainbows -c /tmp/leaderboard-sinatra.rainbows.rb -E production -D"
 
-  w.stop = "kill -QUIT `cat #{shared_root}/pids/leaderboard-sinatra-synchrony.thin.pid`"
+  # QUIT gracefully shuts down workers
+  w.stop = "kill -QUIT `cat #{shared_root}/pids/leaderboard-sinatra.rainbows.pid`"
+
+  # USR2 causes the master to re-create itself and spawn a new worker pool
+  w.restart = "kill -USR2 `cat #{shared_root}/pids/leaderboard-sinatra.rainbows.pid`"
 
   w.start_grace = 10.seconds
   w.restart_grace = 10.seconds
-  w.pid_file = "#{shared_root}/pids/leaderboard-sinatra-synchrony.thin.pid"
+  w.pid_file = "#{shared_root}/pids/leaderboard-sinatra.rainbows.pid"
 
   w.uid = 'deploy'
   w.gid = 'deploy'
