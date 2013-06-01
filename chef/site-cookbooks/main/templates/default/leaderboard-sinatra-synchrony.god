@@ -7,7 +7,7 @@ God.watch do |w|
   w.name = "leaderboard-sinatra-synchrony.thin"
   w.interval = 30.seconds # default
 
-  w.start = "cd #{sinatra_root} && RACK_ENV=production bundle exec thin start -e production -P #{shared_root}/pids/leaderboard-sinatra-synchrony.thin.pid -S /tmp/leaderboard-sinatra-synchrony.thin.sock -l #{shared_root}/log/leaderboard-sinatra-synchrony.thin.log -d"
+  w.start = "cd #{sinatra_root} && NEW_RELIC_APP_NAME=leaderboard-sinatra-synchrony RACK_ENV=production bundle exec thin start -e production -P #{shared_root}/pids/leaderboard-sinatra-synchrony.thin.pid -S /tmp/leaderboard-sinatra-synchrony.thin.sock -l #{shared_root}/log/leaderboard-sinatra-synchrony.thin.log -d"
 
   w.stop = "kill -QUIT `cat #{shared_root}/pids/leaderboard-sinatra-synchrony.thin.pid`"
 

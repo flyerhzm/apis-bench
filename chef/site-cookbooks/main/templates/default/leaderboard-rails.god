@@ -8,7 +8,7 @@ God.watch do |w|
   w.interval = 30.seconds # default
 
   # unicorn needs to be run from the rails root
-  w.start = "cd #{rails_root} && bundle exec unicorn -c /tmp/leaderboard-rails.unicorn.rb -E production -D"
+  w.start = "cd #{rails_root} && NEW_RELIC_APP_NAME=leaderboard-rails bundle exec unicorn -c /tmp/leaderboard-rails.unicorn.rb -E production -D"
 
   # QUIT gracefully shuts down workers
   w.stop = "kill -QUIT `cat #{shared_root}/pids/leaderboard-rails.unicorn.pid`"
