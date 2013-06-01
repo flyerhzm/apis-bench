@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-sinatra_root = '/home/deploy/sites/apis-bench/current/leaderboard-sinatra'
+sinatra_root = '/home/deploy/sites/apis-bench/current/leaderboard-sinatra-rainbows'
 shared_root = '/home/deploy/sites/apis-bench/shared'
 
 God.watch do |w|

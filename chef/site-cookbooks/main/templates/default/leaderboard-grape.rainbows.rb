@@ -1,7 +1,7 @@
 shared_path = "/home/deploy/sites/apis-bench/shared"
 
 worker_processes 1
-working_directory "/home/deploy/sites/apis-bench/current/leaderboard-grape"
+working_directory "/home/deploy/sites/apis-bench/current/leaderboard-grape-rainbows"
 listen 7000, :tcp_nopush => true
 timeout 30
 pid shared_path + "/pids/leaderboard-grape.rainbows.pid"

@@ -1,0 +1,35 @@
+source 'https://rubygems.org'
+
+gem 'oj'
+
+gem 'grape'
+gem 'activerecord', require: 'active_record'
+
+gem 'mysql2'
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+gem 'rainbows'
+gem 'thin'
+
+gem 'newrelic_rpm'
+gem 'newrelic-grape'
+
+gem 'require_all'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'debugger'
+
+gem 'faker', require: false
+
+group :test do
+  gem 'rspec'
+  gem 'factory_girl'
+  gem 'rack-test'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+end
