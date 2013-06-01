@@ -22,14 +22,6 @@ mysql_database_user 'api-bench' do
   action :grant
 end
 
-template "/etc/nginx/sites-available/leaderboard-rails" do
-  source "leaderboard-rails.nginx.conf"
-end
-
-link "/etc/nginx/sites-enabled/leaderboard-rails" do
-  to "/etc/nginx/sites-available/leaderboard-rails"
-end
-
 template "/tmp/leaderboard-rails.god" do
   source "leaderboard-rails.god"
   user 'deploy'
@@ -40,14 +32,6 @@ template "/tmp/leaderboard-rails.unicorn.rb" do
   source "leaderboard-rails.unicorn.rb"
   user 'deploy'
   group 'deploy'
-end
-
-template "/etc/nginx/sites-available/leaderboard-rails-api" do
-  source "leaderboard-rails-api.nginx.conf"
-end
-
-link "/etc/nginx/sites-enabled/leaderboard-rails-api" do
-  to "/etc/nginx/sites-available/leaderboard-rails-api"
 end
 
 template "/tmp/leaderboard-rails-api.god" do
@@ -62,14 +46,6 @@ template "/tmp/leaderboard-rails-api.unicorn.rb" do
   group 'deploy'
 end
 
-template "/etc/nginx/sites-available/leaderboard-sinatra" do
-  source "leaderboard-sinatra.nginx.conf"
-end
-
-link "/etc/nginx/sites-enabled/leaderboard-sinatra" do
-  to "/etc/nginx/sites-available/leaderboard-sinatra"
-end
-
 template "/tmp/leaderboard-sinatra.god" do
   source "leaderboard-sinatra.god"
   user 'deploy'
@@ -80,14 +56,6 @@ template "/tmp/leaderboard-sinatra.unicorn.rb" do
   source "leaderboard-sinatra.unicorn.rb"
   user 'deploy'
   group 'deploy'
-end
-
-template "/etc/nginx/sites-available/leaderboard-grape" do
-  source "leaderboard-grape.nginx.conf"
-end
-
-link "/etc/nginx/sites-enabled/leaderboard-grape" do
-  to "/etc/nginx/sites-available/leaderboard-grape"
 end
 
 template "/tmp/leaderboard-grape.god" do
@@ -102,26 +70,10 @@ template "/tmp/leaderboard-grape.unicorn.rb" do
   group 'deploy'
 end
 
-template "/etc/nginx/sites-available/leaderboard-sinatra-synchrony" do
-  source "leaderboard-sinatra-synchrony.nginx.conf"
-end
-
-link "/etc/nginx/sites-enabled/leaderboard-sinatra-synchrony" do
-  to "/etc/nginx/sites-available/leaderboard-sinatra-synchrony"
-end
-
 template "/tmp/leaderboard-sinatra-synchrony.god" do
   source "leaderboard-sinatra-synchrony.god"
   user 'deploy'
   group 'deploy'
-end
-
-template "/etc/nginx/sites-available/leaderboard-grape-goliath" do
-  source "leaderboard-grape-goliath.nginx.conf"
-end
-
-link "/etc/nginx/sites-enabled/leaderboard-grape-goliath" do
-  to "/etc/nginx/sites-available/leaderboard-grape-goliath"
 end
 
 template "/tmp/leaderboard-grape-goliath.god" do

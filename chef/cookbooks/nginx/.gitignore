@@ -1,6 +1,0 @@
-.bundle
-.cache
-.kitchen
-bin
-.Vagrantfile
-Gemfile.lock
