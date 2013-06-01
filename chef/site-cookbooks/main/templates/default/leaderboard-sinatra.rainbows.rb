@@ -11,7 +11,7 @@ preload_app true
 
 Rainbows! do
   use :ThreadSpawn
-  worker_connections 400
+  worker_connections 200
 end
 
 before_fork do |server, worker|
@@ -31,6 +31,9 @@ before_fork do |server, worker|
 end
 
 after_fork do |server, worker|
-  defined?(ActiveRecord::Base) and
-  ActiveRecord::Base.establish_connection
+  if defined?(ActiveRecord::Base)
+    env = ENV['RACK_ENV'] || "development"
+    config = YAML::load(File.open('config/database.yml'))[env]
+    ActiveRecord::Base.establish_connection(config)
+  end
 end
