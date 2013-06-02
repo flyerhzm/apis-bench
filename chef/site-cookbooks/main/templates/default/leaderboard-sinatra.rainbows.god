@@ -8,7 +8,7 @@ God.watch do |w|
   w.interval = 30.seconds # default
 
   # rainbows needs to be run from the rails root
-  w.start = "cd #{sinatra_root} && NEW_RELIC_APP_NAME=leaderboard-sinatra RACK_ENV=production bundle exec rainbows -c /tmp/leaderboard-sinatra.rainbows.rb -E production -D"
+  w.start = "cd #{sinatra_root} && NEW_RELIC_APP_NAME=leaderboard-sinatra.rainbows RACK_ENV=production bundle exec rainbows -c /tmp/leaderboard-sinatra.rainbows.rb -E production -D"
 
   # QUIT gracefully shuts down workers
   w.stop = "kill -QUIT `cat #{shared_root}/pids/leaderboard-sinatra.rainbows.pid`"

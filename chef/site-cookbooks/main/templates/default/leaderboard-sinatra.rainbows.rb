@@ -2,7 +2,7 @@ shared_path = "/home/deploy/sites/apis-bench/shared"
 
 worker_processes 1
 working_directory "/home/deploy/sites/apis-bench/current/leaderboard-sinatra-rainbows"
-listen 8000, :tcp_nopush => true
+listen 7000, :tcp_nopush => true
 timeout 30
 pid shared_path + "/pids/leaderboard-sinatra.rainbows.pid"
 stderr_path shared_path + "/log/leaderboard-sinatra.rainbows.stderr.log"
