@@ -27,7 +27,7 @@ GEM
     kgio (2.7.4)
     multi_json (1.7.2)
     mysql2 (0.3.11)
-    newrelic_rpm (3.6.3.104)
+    newrelic_rpm (3.6.1.88)
     oj (2.0.13)
     rack (1.5.2)
     rack-protection (1.5.0)
