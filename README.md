@@ -1,6 +1,6 @@
 # apis-bench
 
-## How to
+## Setup
 
 add `/etc/hosts`
 
@@ -19,16 +19,16 @@ bundle
 knife solo cook deploy@apis-bench
 ```
 
-start god in server
+start god
 
 ```
-rvmsudo god -c /tmp/god.conf
+cap deploy:start_god
 ```
 
 deploy code
 
 ```
-NEW_RELIC_LICENSE_KEY=xxx cap deploy
+cap deploy
 ```
 
 seed data, it takes a very very very long time :-)
@@ -37,7 +37,8 @@ seed data, it takes a very very very long time :-)
 cap deploy:seed
 ```
 
-then it's ready.
+then it's ready, make sure the database is warmed up before you start
+benchmark.
 
 ```
 leaderboard-rails at port 3000
@@ -49,3 +50,31 @@ leaderboard-grape.rainbows at port 8000
 leaderboard-sinatra-synchrony at port 10000
 leaderboard-grape-goliath at port 11000
 ```
+
+## NewRelic
+
+if you want to measure the performance on newrelic, add you newrelic
+license key besides NEW_RELIC_APP_NAME in the following god files, like
+
+```
+NEW_RELIC_APP_NAME=leaderboard-rails NEW_RELIC_LICENSE_KEY=xxx
+```
+
+```
+chef/site-cookbooks/main/templates/default/leaderboard-rails.god
+chef/site-cookbooks/main/templates/default/leaderboard-rails-api.god
+chef/site-cookbooks/main/templates/default/leaderboard-sinatra.unicorn.god
+chef/site-cookbooks/main/templates/default/leaderboard-grape.unicorn.god
+chef/site-cookbooks/main/templates/default/leaderboard-sinatra.rainbows.god
+chef/site-cookbooks/main/templates/default/leaderboard-grape.rainbows.god
+chef/site-cookbooks/main/templates/default/leaderboard-sinatra-synchrony.god
+chef/site-cookbooks/main/templates/default/leaderboard-grape-goliath.god
+```
+
+## Known Issues
+
+1. failed to add newrelic to leaderboard-sinatra-synchrony
+2. failed to add fiber_pool to leaderboard-grape-goliath
+
+I appreciate it if you can help to solve the issue and open a pull
+request to me, thanks.
