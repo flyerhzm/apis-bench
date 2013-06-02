@@ -40,4 +40,8 @@ namespace :deploy do
   task :start_god do
     run "rvmsudo god -c /tmp/god.conf"
   end
+
+  task :stop_god do
+    run "rvmsudo god terminate"
+  end
 end
